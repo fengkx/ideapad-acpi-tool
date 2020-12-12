@@ -1,0 +1,3 @@
+{
+    "files": ["SwitchRow.qml","main.py","view.qml","acpi_call.py", "icon_rc.py"]
+}
