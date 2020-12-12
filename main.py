@@ -1,4 +1,4 @@
-# This Python file uses the following encoding: utf-8
+#!/usr/bin/env python3
 import sys
 import os
 from PySide2.QtCore import QObject, QStringListModel, Slot

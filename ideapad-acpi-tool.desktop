@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=IdeaPad ACPI Tool
+Comment=IdeaPad ACPI GUI Config Tool
+Path=/usr/share/ideapad-acpi-tool
+Icon=/usr/share/ideapad-acpi-tool/icons/battery.ico
+# The executable of the application, possibly with arguments.
+Exec=sh -c "pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY $PWD/main.py"
+# Describes whether this application needs to be run in a terminal or not
+Terminal=false
+Categories=Settings
