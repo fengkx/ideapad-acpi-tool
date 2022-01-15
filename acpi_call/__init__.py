@@ -65,22 +65,22 @@ def setPerfMode(mode: Mode):
     # print(Mode(int(result[2])))
 
 
-def setRapidCharge(val: bool):
+def setRapidCharge(val: bool) -> bool:
     payload = ""
     if val:
         payload = '\_SB.PCI0.LPC0.EC0.VPC0.SBMC 0x07'
     else:
         payload = '\_SB.PCI0.LPC0.EC0.VPC0.SBMC 0x08'
-    print(acpi_call(payload, '\_SB.PCI0.LPC0.EC0.QCHO'))
+    return (acpi_call(payload, '\_SB.PCI0.LPC0.EC0.QCHO')[:3] == '0x1')
 
 
-def setBatteryConservation(val: bool):
+def setBatteryConservation(val: bool) -> bool:
     payload = ""
     if val:
         payload = '\_SB.PCI0.LPC0.EC0.VPC0.SBMC 0x03'
     else:
         payload = '\_SB.PCI0.LPC0.EC0.VPC0.SBMC 0x05'
-    print(acpi_call(payload, '\_SB.PCI0.LPC0.EC0.BTSM'))
+    return (acpi_call(payload, '\_SB.PCI0.LPC0.EC0.BTSM')[:3] == '0x1')
 
 
 if __name__ == "__main__":

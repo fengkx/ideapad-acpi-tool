@@ -15,20 +15,20 @@ SwitchDelegate {
         minimumPixelSize: 18
     }
     visible: true
-    text: opKeysModel.data(opKeysModel.index(index, 0))
+    checked: opKeysModel.data(opKeysModel.index(index, 0)).checked
+    text: opKeysModel.data(opKeysModel.index(index, 0)).text
     width: mainView.width
     onToggled: {
         if(index === 0) {
-            conn.setBatteryConservation(control.checked)
+            const isRapidCharge = conn.setRapidCharge(!control.checked)
+            const isBatteryConservation = conn.setBatteryConservation(control.checked)
+            opKeysModel.toggle(opKeysModel.index(index, 0), isBatteryConservation)
+            opKeysModel.toggle(opKeysModel.index(1, 0), isRapidCharge)
         }
         else if (index === 1) {
+            conn.setBatteryConservation(!control.checked)
             conn.setRapidCharge(control.checked)
         }
 
-    }
-    Component.onCompleted: {
-        const result = conn.getStatus(control.text)
-        console.log(result)
-        control.checked = result
     }
 }

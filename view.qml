@@ -76,7 +76,7 @@ ApplicationWindow {
         }
 
         GroupBox {
-            id: groupBox
+            id: groupBoxtoggletoggle
             y: 262
             height: 200
 
